@@ -1,5 +1,7 @@
 package com.prime.oms.customer.service.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.prime.oms.customer.domain.CustomerEntity;
@@ -42,6 +44,11 @@ public class CustomerServiceImpl implements CustomerService {
 	public void delete(Long id) {
 		CustomerEntity customer = getCustomerNameById(id);
 		customerRepository.delete(customer);
+	}
+
+	@Override
+	public List<CustomerEntity> getAll() {
+		return customerRepository.findAll();
 	}
 
 }

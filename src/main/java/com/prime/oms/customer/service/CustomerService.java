@@ -1,5 +1,7 @@
 package com.prime.oms.customer.service;
 
+import java.util.List;
+
 import com.prime.oms.customer.domain.CustomerEntity;
 
 public interface CustomerService {
@@ -11,5 +13,8 @@ public interface CustomerService {
 	public void update(Long id, CustomerEntity customer);
 
 	public void delete(Long id);
+
+	public List<CustomerEntity> getAll();
+
 
 }

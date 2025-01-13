@@ -1,5 +1,7 @@
 package com.prime.oms.customer.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -20,6 +22,11 @@ import lombok.RequiredArgsConstructor;
 public class CustomerController {
 	
 	private final CustomerService customerService;
+	
+	@GetMapping
+	public List<CustomerEntity> getAll() {
+		return customerService.getAll();
+	}
 	
 	@GetMapping("{id}")
 	public CustomerEntity get(@PathVariable Long id) {

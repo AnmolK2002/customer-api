@@ -15,28 +15,28 @@ import com.prime.oms.customer.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping
+@RequestMapping("/customer")
 @RequiredArgsConstructor
 public class CustomerController {
 	
 	private final CustomerService customerService;
 	
-	@GetMapping("/customer/{id}")
+	@GetMapping("{id}")
 	public CustomerEntity get(@PathVariable Long id) {
 		return customerService.getCustomerNameById(id);
 	}
 	
-	@PostMapping("/customer")
+	@PostMapping
 	public void create(@RequestBody CustomerEntity customer) {
 		customerService.create(customer);
 	}
 	
-	@PatchMapping("/customer/{id}")
+	@PatchMapping("{id}")
 	public void create(@PathVariable Long id, @RequestBody CustomerEntity customer) {
 		customerService.update(id, customer);
 	}
 		
-	@DeleteMapping("/customer/{id}")
+	@DeleteMapping("{id}")
 	public void delete(@PathVariable Long id) {
 		customerService.delete(id);
 	}
